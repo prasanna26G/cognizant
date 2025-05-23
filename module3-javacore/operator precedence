@@ -1,0 +1,18 @@
+import java.util.Scanner;
+public class OperatorPrecedenceDemo {
+    public static void main(String[] args)
+    {
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
+        int b=scanner.nextInt();
+        int c=scanner.nextInt();
+        int result1 = a + b * c; 
+        System.out.println("Result 1 is : " + result1);
+        int result2 = (a + b) * c;  
+        System.out.println("Result 2 is: " + result2);
+        int result3 = a - b / c;
+        System.out.println("Result 3 is:  " + result3);
+        int result4 = a + b - c * a / b;  
+        System.out.println("Result 4 is : " + result4);
+    }
+}
