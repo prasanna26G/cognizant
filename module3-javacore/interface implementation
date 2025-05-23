@@ -1,0 +1,28 @@
+interface Playable
+{
+    void play();
+}
+class Guitar implements Playable
+{
+    public void play()
+    {
+        System.out.println("Guitar sounds good");
+    }
+}
+class Piano implements Playable
+{
+    public void play()
+    {
+        System.out.println("Piano sounds beautiful");
+    }
+}
+class Main
+{
+  public static void main(String[] args)
+  {
+      Guitar g=new Guitar();
+      g.play();
+      Piano p=new Piano();
+      p.play();
+  }
+}
