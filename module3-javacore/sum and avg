@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class ArraySumAverage {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of elements: ");
+        int n = scanner.nextInt();
+        int[] num = new int[n];
+        int sum = 0;
+        System.out.println("Enter");
+        for (int i = 0; i < n; i++) {
+            num[i] = scanner.nextInt();
+            sum += num[i];
+        }
+        int average = sum / n;
+        System.out.println("Sum of the elements: " + sum);
+        System.out.println("Average of the elements: " + average);
+    }
+}
