@@ -1,0 +1,6 @@
+-- Q17. Multi-Session Speakers: Identify speakers who are handling more than one session across all events.
+
+select speaker_name,COUNT(*) as session_count
+from sessions
+group by speaker_name
+having COUNT(*)>1;
