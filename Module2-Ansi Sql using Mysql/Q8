@@ -1,0 +1,7 @@
+-- Q8. Sessions per Upcoming Event: Display all upcoming events with the count of sessions scheduled for them
+
+select e.title,COUNT(*) as sess_count
+from events e
+join sessions s on s.event_id=e.event_id
+where e.status='upcoming'
+group by e.event_id,e.title;
