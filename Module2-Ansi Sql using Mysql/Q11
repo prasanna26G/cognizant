@@ -1,0 +1,7 @@
+-- Q11. Daily New User Count: Find the number of users who registered each day in the last 7 days
+
+select COUNT(*) as user_count
+from users
+where registraction_date>=current_date-interval 7 day
+group by registraction_date
+order by registraction_date;
