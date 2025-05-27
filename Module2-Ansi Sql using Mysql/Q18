@@ -1,0 +1,6 @@
+-- Q18. Resource Availability Check:List all events that do not have any resources uploaded.
+
+select e.title
+from events e
+join resources r on r.event_id=e.event_id
+order by r.uploaded_at=NULL;
