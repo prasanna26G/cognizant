@@ -1,0 +1,8 @@
+-- Q19. Completed Events with Feedback Summary: For completed events, show total registrations and average feedback rating.
+
+select e.title,COUNT(r.user_id) as tota_regi,AVG(f.rating) as avg_rate
+from events e
+join feedback f on f.event_id=e.event_id
+join registrations r on r.event_id=e.event_id
+where e.status="completed"
+group by e.title;
