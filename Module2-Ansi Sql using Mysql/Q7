@@ -1,0 +1,6 @@
+-- Q7. Low Feedback Alerts: List all users who gave feedback with a rating less than 3, along with their comments and associated event names.
+
+select f.user_id,f.comments,e.title as event_name
+from feedback f
+join events e on e.event_id=f.event_id
+where f.rating<3;
