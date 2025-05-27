@@ -1,0 +1,8 @@
+-- Q6. Event Resource Summary: Generate a report showing the number of resources (PDFs, images, links) uploaded for each event.
+
+select event_id,
+    sum(case when resource_type='pdf' then 1 else 0 end) as pc, 
+    sum(case when resource_type='image' then 1 else 0 end) as ic,
+    sum(case when resource_type='link' then 1 else 0 end) as lc
+from resources
+group by event_id;
