@@ -1,0 +1,9 @@
+-- Q3. Inactive Users: Retrieve users who have not registered for any events in the last 90 days?
+
+select distinct user_id
+from registrations
+where user_id not in(
+    select user_id
+    from registrations
+    where registration_date>=current_date- interval 90 day
+);
