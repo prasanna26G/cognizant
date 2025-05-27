@@ -1,0 +1,6 @@
+-- Q20. User Engagement Index: For each user, calculate how many events they attended and how many feedbacks they submitted.
+
+select u.user_id, COUNT() as event_count,COUNT() as feedback
+from feedback f
+join users u on u.user_id=f.user_id
+group by f.user_id;
