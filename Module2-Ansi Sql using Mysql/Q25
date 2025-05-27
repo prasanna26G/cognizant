@@ -1,0 +1,6 @@
+-- Q25. Events Without Sessions: List all events that currently have no sessions scheduled under them.
+
+select e.event_id,e.title
+from events e
+join sessions s on e.event_id=s.event_id
+where s.session_id is NULL;
