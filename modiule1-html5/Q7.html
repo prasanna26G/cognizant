@@ -1,0 +1,36 @@
+<html >
+<head>
+  <title>video</title>
+  <style>
+    body {
+       padding: 20px;
+    }
+    #message {
+      margin-top: 10px;
+      color: red;
+    }
+
+    video {
+      width: 300px;
+      height: 150px;
+      border: 2px solid;
+    
+    }
+  </style>
+</head>
+<body>
+
+  <h2>promo</h2>
+  <video controls oncanplay="document.getElementById('message').textContent = ' Video is ready to play!';">
+    <source src="C:\Users\gudav\Downloads\trainrunning.mp4" type="video/mp4">
+     </video>
+
+   <div id="message"></div>
+  <script>
+    window.onbeforeunload = function () {
+      return true;    
+ };
+  </script>
+
+</body>
+</html>
