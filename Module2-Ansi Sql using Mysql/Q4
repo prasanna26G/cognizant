@@ -1,0 +1,7 @@
+-- Q4. Peak Session Hours: Count how many sessions are scheduled between 10 AM to 12 PM for each event.
+
+select event_id,COUNT(*) as session_count
+from sessions
+where time(start_time) between '10:00:00' and '12:00:00'
+group by event_id;
+
