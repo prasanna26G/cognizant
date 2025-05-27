@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>navigation and linking</title>
+</head>
+<body>
+<nav>
+<a href="#home">Home</a><br>
+<a href="#events">Events</a> <br>               
+<a href="#contact">Contact</a><br>
+<a href="help.html" target="_blank">Help</a>
+</nav>
+<main>
+<section id="home">
+<h1>Welcome! </h1>
+<p>This is the home page.</p>
+</section>
+<section id="events">
+<h1>welcome,are you looking for events?</h1>
+<p>This is events page</p>
+</section>
+<section id="contact">
+<h1>contact here!</h1>
+<p>contact for more details</p>
+</section>
+</main>
+
+
+
+<!--help.html-->
+
+<html>
+<head>
+<title>linking</title>
+</head>
+<body>
+ <a href="index1.html" target="_blank">Back to home</a>
+</body>
