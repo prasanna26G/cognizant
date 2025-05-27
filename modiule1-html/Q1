@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Portal Base Template</title>
+</head>
+<body>
+    <nav>
+        
+<p>navigation section</p>
+    </nav>
+
+       <main>
+        
+<p>main section</p>
+    </main>
+
+      <footer>
+        
+<p>footer section </p>
+    </footer>
+
+</body>
+</html>
