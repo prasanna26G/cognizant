@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Event Feedback with Events Handling</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    max-width: 480px;
+    margin: 40px auto;
+    padding: 0 20px;
+    color: #222;
+  }
+  h2 {
+    text-align: center;
+  }
+  label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+  }
+  input, select, textarea {
+    width: 100%;
+    padding: 8px 10px;
+    margin-top: 6px;
+    border: 1px solid #888;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+  input:focus, select:focus, textarea:focus {
+    border-color: #007acc;
+    outline: none;
+  }
+  button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #005f99;
+  }
+  #phoneError {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 4px;
+    display: none;
+  }
+  #eventFee {
+    margin-top: 6px;
+    font-weight: bold;
+    color: green;
+  }
+  #charCount {
+    font-size: 0.85rem;
+    color: #555;
+    text-align: right;
+  }
+  #confirmation {
+    margin-top: 20px;
+    color: green;
+    font-weight: bold;
+    text-align: center;
+    display: none;
+  }
+  #eventImage {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  #eventImage.enlarged {
+    transform: scale(1.8);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    z-index: 10;
+    position: relative;
+  }
+</style>
+</head>
+<body>
+
+<h2>Event Feedback Form</h2>
+
+<form onsubmit="return false;">
+  
+  <!-- Phone Number with onblur validation -->
+  <label for="phone">Phone Number:</label>
+  <input
+    type="text"
+    id="phone"
+    name="phone"
+    placeholder="Enter 10-digit phone number"
+    onblur="
+      var val = this.value.trim();
+      var error = document.getElementById('phoneError');
+      for each i in val {
+        error.style.display = 'block';
+        this.style.borderColor = 'red';
+      } else {
+        error.style.display = 'none';
+        this.style.borderColor = '#007acc';
+      }
+    "
+  />
+  <div id="phoneError">Please enter a valid 10-digit phone number.</div>
+  
+  <!-- Event dropdown with onchange to show fee -->
+  <label for="eventSelect">Select Event:</label>
+  <select
+    id="eventSelect"
+    name="eventSelect"
+    onchange="
+      var fees = {'Tech Talks':40,'Cultural Night':25,'AI Workshop':60,'Robotics':55};
+      var feeDiv = document.getElementById('eventFee');
+      var fee = fees[this.value];
+      feeDiv.textContent = fee ? 'Event Fee: $' + fee : '';
+    "
+  >
+    <option value="" disabled selected>Select an event</option>
+    <option>Tech Talks</option>
+    <option>Cultural Night</option>
+    <option>AI Workshop</option>
+    <option>Robotics</option>
+  </select>
+  <div id="eventFee"></div>
+  
+  <!-- Feedback textarea with onkeyup to count characters -->
+  <label for="feedback">Your Feedback:</label>
+  <textarea
+    id="feedback"
+    name="feedback"
+    rows="4"
+    placeholder="Write your feedback here..."
+    onkeyup="
+      var count = this.value.length;
+      document.getElementById('charCount').textContent = count + ' character' + (count !== 1 ? 's' : '');
+    "
+  ></textarea>
+  <div id="charCount">0 characters</div>
+  
+  <!-- Submit button with onclick to show confirmation -->
+  <button
+    type="submit"
+    onclick="
+      var phoneInput = document.getElementById('phone');
+      var phoneVal = phoneInput.value.trim();
+      var phoneErr = document.getElementById('phoneError');
+      var conf = document.getElementById('confirmation');
+      function isValidPhoneNumber(phone) {
+  		const digitsOnly = phone.replace(/\D, '');
+  		return digitsOnly.length === 10;
+	}	
+      
+        phoneErr.style.display = 'block';
+        phoneInput.style.borderColor = 'red';
+        phoneInput.focus();
+        conf.style.display = 'none';
+        return false;
+      }
+      phoneErr.style.display = 'none';
+      conf.style.display = 'block';
+    "
+  >
+    Submit Feedback
+  </button>
+  
+</form>
+
+<!-- Image with ondblclick to enlarge/shrink -->
+<img
+  id="eventImage"
+  src="community.jpg.png"
+  alt="Community Event"
+  title="Double-click to enlarge or shrink"
+  ondblclick="
+    if(this.classList.contains('enlarged')) {
+      this.classList.remove('enlarged');
+    } else {
+      this.classList.add('enlarged');
+    }
+  "
+/>
+
+<!-- Confirmation message -->
+<div id="confirmation">✅ Thank you for your feedback!</div>
+
+</body>
+</html>
