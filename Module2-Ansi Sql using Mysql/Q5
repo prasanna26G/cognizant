@@ -1,0 +1,8 @@
+-- Q5. Most Active Cities: List the top 5 cities with the highest number of distinct user registrations.
+
+select e.city,COUNT(r.user_id) as count
+from registrations r
+join events e on e.event_id=r.event_id
+group by e.city
+order by count desc
+limit 5;
