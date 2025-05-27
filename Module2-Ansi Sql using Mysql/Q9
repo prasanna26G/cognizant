@@ -1,0 +1,8 @@
+-- Q9. Organizer Event Summary: For each event organizer, show the number of events created and their current status (upcoming, completed, cancelled).
+
+select organizer_id,COUNT(*) as count,
+    sum(case when status="upcoming" then 1 else 0 end) as u, 
+    sum(case when status="completed" then 1 else 0 end) as c,
+    sum(case when status="cancelled" then 1 else 0 end) as cancel
+from events
+group by event_id;
