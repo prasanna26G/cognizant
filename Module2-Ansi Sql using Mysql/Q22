@@ -1,0 +1,7 @@
+-- Q22. Duplicate Registrations Check: Detect if a user has been registered more than once for the same event.
+
+select r.user_id,event_id,COUNT(*) as c
+from registrations r
+join users u on u.user_id=r.user_id
+group by event_id,user_id
+having c>1;
