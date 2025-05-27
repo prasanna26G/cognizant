@@ -1,0 +1,7 @@
+-- Q12. Event with Maximum Sessions: List the event(s) with the highest number of sessions.
+
+select e.event_id,e.title,COUNT(*) as session_count
+from events e
+join sessions s on e.event_id=s.event_id
+group by e.event_id,e.title
+limit 1;
